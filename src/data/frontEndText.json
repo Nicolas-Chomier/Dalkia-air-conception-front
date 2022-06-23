@@ -1,0 +1,65 @@
+{
+    "flow": {
+        "title": "Données client n°1 :",
+        "label": "Débit m3/h",
+        "inputSize": 4,
+        "unit": "m3/h",
+        "toolTip": "Débit en m3/h",
+        "maximumValue": 1250,
+        "themeColor": "#4EFAB4"
+    },
+    "pressure": {
+        "title": "Données client n°2 :",
+        "label": "Pression Bar",
+        "inputSize": 3,
+        "unit": "Bar",
+        "toolTip": "Pression en Bar",
+        "maximumValue": 15,
+        "themeColor": "#4EFAB4"
+    },
+    "temperature": {
+        "title": "Données client n°3 :",
+        "label": "Température C°",
+        "inputSize": 2,
+        "unit": "degrés C°",
+        "toolTip": "Température en C°",
+        "maximumValue": 45,
+        "themeColor": "#4EFAB4"
+    },
+    "workingHours": {
+        "title": "Données client n°4 :",
+        "label": "Heures de travail",
+        "inputSize": 4,
+        "unit": "heures",
+        "toolTip": "Totale d'heures de travail annuel",
+        "maximumValue": 8760,
+        "themeColor": "#4EFAB4"
+    },
+    "dust": {
+        "title": "Poussières",
+        "label": 2,
+        "inputSize": 6,
+        "unit": "",
+        "toolTip": "Cochez l'indice de protection voulu contre les poussières (ISO 8573).",
+        "maximumValue": "",
+        "themeColor": "#4EFAB4"
+    },
+    "water": {
+        "title": "Humidité",
+        "label": 4,
+        "inputSize": 6,
+        "unit": "",
+        "toolTip": "Cochez le degré d'hygrométrie maximum admissible dans le systeme (ISO 8573).",
+        "maximumValue": "",
+        "themeColor": "#4EFAB4"
+    },
+    "cov": {
+        "title": "COV",
+        "label": 2,
+        "inputSize": 6,
+        "unit": "",
+        "toolTip": "Cochez l'indice de protection voulu contre les COV(s) (ISO 8573).",
+        "maximumValue": "",
+        "themeColor": "#4EFAB4"
+    }
+}

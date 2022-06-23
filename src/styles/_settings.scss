@@ -1,0 +1,23 @@
+$main-bg-color: #1d1a25;
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  /* overflow: hidden; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $main-bg-color;
+  background-attachment: fixed;
+  background-size: cover;
+  /* background-image: linear-gradient(
+    to right top,
+    #1c1826,
+    #2a2443,
+    #373263,
+    #414086,
+    #4850aa
+  ); */
+}

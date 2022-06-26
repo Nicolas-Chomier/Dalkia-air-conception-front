@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 // API
-import { postLogin } from "../../../api/fetch";
+import { callApi } from "../../../api/callApiSingleCompressor";
 
 // JSON
 const TEXT = JSON.parse(JSON.stringify(ambientText));
@@ -37,7 +37,7 @@ export default function PrivateSingle() {
     }),
   };
   // Fonction test des champs retourne le resultats du backend
-  function sendingDatas() {
+  function sendDataToAPI() {
     const payload = {
       flow: flow ? parseInt(flow, 10) : false,
       pressure: pressure ? parseFloat(pressure) : false,
@@ -53,8 +53,8 @@ export default function PrivateSingle() {
         return alert("Valeurs incorrects");
       }
     }
-    const resultFromOutside = postLogin(payload);
-    return false;
+    console.log(payload);
+    return callApi(payload);
   }
   //
   return (
@@ -120,7 +120,7 @@ export default function PrivateSingle() {
           >
             <IconButton
               aria-label="Picture"
-              onClick={sendingDatas}
+              onClick={sendDataToAPI}
               disableFocusRipple={true}
               disableRipple={true}
             >

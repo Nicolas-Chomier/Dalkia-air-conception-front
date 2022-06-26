@@ -34,7 +34,7 @@ const PrivateHome = () => {
           alignContent: "center",
         }}
       >
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
           <ServiceCard
             text={"Conception"}
             text2={"unitaire"}
@@ -43,7 +43,7 @@ const PrivateHome = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
           <ServiceCard
             text={"Conception"}
             text2={"multiple"}
@@ -52,7 +52,7 @@ const PrivateHome = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
           <ServiceCard
             text={"Architecture"}
             text2={"automate"}
@@ -61,11 +61,20 @@ const PrivateHome = () => {
           />
         </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={2}>
           <ServiceCard
             text={"Surveillance"}
             text2={"Systeme"}
             image={"/cube4.png"}
+            path={"/private/private-wip"}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={2}>
+          <ServiceCard
+            text={"Récupération"}
+            text2={"Calories"}
+            image={"/cube5.png"}
             path={"/private/private-wip"}
           />
         </Grid>

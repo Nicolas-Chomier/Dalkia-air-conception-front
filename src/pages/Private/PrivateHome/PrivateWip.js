@@ -8,10 +8,10 @@ const PrivateWip = () => {
     <Grid
       container
       direction="column"
-      justifyContent="flex-start"
+      justifyContent="center"
       alignItems="stretch"
     >
-      <Grid item xs={12} sx={{ mb: 20 }}>
+      <Grid item xs={12} sx={{ mb: 15 }}>
         <Navbar title={"En construction"} />
       </Grid>
       <Grid
@@ -24,7 +24,7 @@ const PrivateWip = () => {
           <Avatar
             alt="page under construction"
             src={"/images/WIP.webp"}
-            sx={{ width: 700, height: 700 }}
+            sx={{ width: 650, height: 650 }}
           />
         </Grid>
       </Grid>

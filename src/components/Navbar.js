@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { UserContext } from "../context/userContext";
+import React from "react";
+//import { UserContext } from "../context/userContext";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { grey } from "@mui/material/colors";
 
 export default function Navbar({ title }) {
-  const { toggleModals } = useContext(UserContext);
+  //const { toggleModals } = useContext(UserContext);
 
   const navigate = useNavigate();
 

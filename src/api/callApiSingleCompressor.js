@@ -1,21 +1,7 @@
 import axios from "axios";
-import {
-  Table,
-  TableRow,
-  TableCell,
-  ShadingType,
-  Paragraph,
-  TextRun,
-  HeadingLevel,
-  AlignmentType,
-  LevelFormat,
-  WidthType,
-  ImageRun,
-} from "docx";
 import { documents } from "../document_builder/documentBuilder";
 import { Packer, Document } from "docx";
 import { saveAs } from "file-saver";
-import { Buffer } from "buffer";
 
 const LOCALURL = "http://localhost:5500";
 //const WEBURL = "https://whispering-escarpment-89309.herokuapp.com";

@@ -1,4 +1,21 @@
 import axios from "axios";
+import {
+  Table,
+  TableRow,
+  TableCell,
+  ShadingType,
+  Paragraph,
+  TextRun,
+  HeadingLevel,
+  AlignmentType,
+  LevelFormat,
+  WidthType,
+  ImageRun,
+} from "docx";
+import { documents } from "../document_builder/documentBuilder";
+import { Packer, Document } from "docx";
+import { saveAs } from "file-saver";
+import { Buffer } from "buffer";
 
 const LOCALURL = "http://localhost:5500";
 //const WEBURL = "https://whispering-escarpment-89309.herokuapp.com";
@@ -23,9 +40,11 @@ export function callApi(payload) {
     .then((token) => callApiSingleCompressor(token, payload));
 }
 
+//! Pour telecharger un document !!
 //* COMPLEXE REQUEST !
 // Axios call distante API for single compressor only
-const callApiSingleCompressor = (token, payload) => {
+/* const callApiSingleCompressor = (token, payload) => {
+  console.log("call url = ", URL);
   const strPayload = JSON.stringify(payload);
   return axios({
     method: "get",
@@ -39,5 +58,33 @@ const callApiSingleCompressor = (token, payload) => {
     link.setAttribute("download", "Draft.docx");
     document.body.appendChild(link);
     link.click();
+  });
+}; */
+
+const callApiSingleCompressor = (token, payload) => {
+  console.log("call url = ", URL);
+  const strPayload = JSON.stringify(payload);
+  return axios({
+    method: "get",
+    url: `${URL}/api/unique?payload=${strPayload}`,
+    headers: { Authorization: `Bearer ${token}` },
+    responseType: "json",
+    /* timeout: 30000, */
+  }).then((response) => {
+    console.log("response", response.data.data);
+    const apiResult = response.data.data;
+    const core = documents(apiResult);
+    const doc = new Document({
+      sections: [
+        {
+          properties: {},
+          children: core,
+        },
+      ],
+    });
+    Packer.toBlob(doc).then((blob) => {
+      // saveAs from FileSaver will download the file
+      saveAs(blob, "draft.docx");
+    });
   });
 };

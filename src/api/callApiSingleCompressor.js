@@ -1,76 +1,66 @@
 import axios from "axios";
-import { documents } from "../document_builder/documentBuilder";
-import { Packer, Document } from "docx";
 import { saveAs } from "file-saver";
+import { Buffer } from "buffer";
 
-const LOCALURL = "http://localhost:5500";
-//const WEBURL = "https://whispering-escarpment-89309.herokuapp.com";
-const WEBURL = "https://afternoon-scrubland-03383.herokuapp.com";
-const URL = process.env.REACT_APP_ENVIRONMENT ? LOCALURL : WEBURL;
+const offLineUrl = "http://localhost:5500";
+const onLineUrl = "https://afternoon-scrubland-03383.herokuapp.com";
+const URL = process.env.REACT_APP_ENVIRONMENT ? offLineUrl : onLineUrl;
+const MIMETYPE =
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
-//* BASIC REQUEST !
-// Axios call distante API for JWT
-export function callApi(payload) {
-  axios
-    // Ask JWT
-    .post(
-      `${URL}/api/login`,
-      { username: "admin", password: "admin" },
-      { headers: { "Content-Type": "application/json" } }
-    )
-    // Get JWT from result
+// Axios call end point API to get JWT and launch other API request
+export async function callApi(payload) {
+  // Config
+  const url = `${URL}/api/login`;
+  const axiosConf = {
+    method: "post",
+    data: {
+      username: "admin",
+      password: "admin",
+    },
+    url: url,
+    headers: { "Content-Type": "application/json" },
+    responseType: "json",
+  };
+  // Call API
+  const requestResult = await axios(axiosConf)
     .then((result) => {
-      return result.data.token;
+      return result.data.token; //JWT
     })
-    // Call document end point creation
-    .then((token) => callApiSingleCompressor(token, payload));
+    .then(async (token) => {
+      const result = await callApiSingleCompressor(token, payload);
+      return result;
+    });
+  return requestResult;
 }
 
-//! Pour telecharger un document !!
-//* COMPLEXE REQUEST !
-// Axios call distante API for single compressor only
-/* const callApiSingleCompressor = (token, payload) => {
-  console.log("call url = ", URL);
-  const strPayload = JSON.stringify(payload);
-  return axios({
+// Axios call end point API for build document offer only for single compressor
+const callApiSingleCompressor = async (token, payload) => {
+  // Config
+  const url = `${URL}/api/unique?payload=${JSON.stringify(payload)}`;
+  const axiosConf = {
     method: "get",
-    url: `${URL}/api/unique?payload=${strPayload}`,
-    headers: { Authorization: `Bearer ${token}` },
-    responseType: "blob",
-  }).then((response) => {
-    const url = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "Draft.docx");
-    document.body.appendChild(link);
-    link.click();
-  });
-}; */
-
-const callApiSingleCompressor = (token, payload) => {
-  console.log("call url = ", URL);
-  const strPayload = JSON.stringify(payload);
-  return axios({
-    method: "get",
-    url: `${URL}/api/unique?payload=${strPayload}`,
+    url: url,
     headers: { Authorization: `Bearer ${token}` },
     responseType: "json",
-    /* timeout: 30000, */
-  }).then((response) => {
-    console.log("response", response.data.data);
-    const apiResult = response.data.data;
-    const core = documents(apiResult);
-    const doc = new Document({
-      sections: [
-        {
-          properties: {},
-          children: core,
-        },
-      ],
+  };
+  // Call API
+  const requestResult = await axios(axiosConf)
+    .then((response) => {
+      return response.data.data;
+    })
+    .then((result) => {
+      if (result) {
+        const decodedData = Buffer.from(result, "base64");
+        const blob = new Blob([decodedData], {
+          type: MIMETYPE,
+        });
+        saveAs(blob, "Offre.docx");
+        return true;
+      } else {
+        console.warn("Bad datas input");
+        return false;
+      }
     });
-    Packer.toBlob(doc).then((blob) => {
-      // saveAs from FileSaver will download the file
-      saveAs(blob, "draft.docx");
-    });
-  });
+  return requestResult;
 };

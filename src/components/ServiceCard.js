@@ -9,16 +9,19 @@ import { Avatar, Stack } from "@mui/material";
 
 const styles = {
   mx: "50%",
-  mb: "3vh",
-  border: 1,
+  mb: "5vh",
+  border: 2,
   transform: "translateX(-50%)",
   width: "100%",
-  borderColor: "WhiteSmoke",
-  borderRadius: "40px",
+  borderColor: "#D7D7D7",
+  borderRadius: "30px",
   padding: 0,
-  maxWidth: 160,
-  backgroundImage:
-    "linear-gradient(to top, #201f25, #26252f, #2c2c3a, #323245, #373950)",
+  maxWidth: 180,
+  backgroundColor: "#1E1A2A",
+  /* backgroundImage:
+    "linear-gradient(to right top, #474da2, #403f81, #363262, #2b2545, #1e1a2a)", */
+  /* backgroundImage:
+    "linear-gradient(to top, #201f25, #26252f, #2c2c3a, #323245, #373950)", */
 };
 
 const ServiceCard = ({ text, text2, image, path }) => {
@@ -28,13 +31,13 @@ const ServiceCard = ({ text, text2, image, path }) => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        spacing={2}
+        spacing={3}
       >
         <CardContent sx={{ pb: 0, pt: 3 }}>
           <Avatar
             alt="cube"
             src={`/images/${image}`}
-            sx={{ width: 80, height: 80 }}
+            sx={{ width: 90, height: 90 }}
           />
         </CardContent>
         <CardActions>

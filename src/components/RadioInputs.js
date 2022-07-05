@@ -13,12 +13,12 @@ import Tooltip from "@mui/material/Tooltip";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const RadioInputs = ({ data, result }) => {
+const RadioInputs = ({ data, color, result }) => {
   const title = data.title;
   const label = data.label;
   const size = data.inputSize;
   const toolTip = data.toolTip;
-  const color = data.themeColor;
+  //const color = data.themeColor;
   //
   const nbsOfRadioBtnList = [...Array(size).keys()];
   const handleChange = (event) => {
@@ -43,48 +43,68 @@ const RadioInputs = ({ data, result }) => {
       }}
     >
       <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={1}
+        direction="column"
+        justifyContent="center"
+        alignItems="flex-start"
+        spacing={0}
       >
         <CardContent
           sx={{
             ...dynamicStyles,
           }}
         >
-          <Typography variant="body1" component="div">
-            {title}
-          </Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-evenly"
+            alignItems="center"
+            spacing={0}
+          >
+            <Typography variant="body1" component="div">
+              {title}
+            </Typography>
+            <Tooltip title={toolTip}>
+              <HelpIcon fontSize="medium" sx={{ color: color, ml: 3 }} />
+            </Tooltip>
+          </Stack>
         </CardContent>
-        <CardContent>
-          <FormControl>
-            <RadioGroup
-              row
-              name="controlled-radio-buttons-group"
-              onChange={handleChange}
-              defaultValue={label}
-            >
-              {nbsOfRadioBtnList.map((item) => (
-                <FormControlLabel
-                  key={item}
-                  value={item + 1}
-                  control={
-                    <Radio
-                      size="small"
-                      sx={{ color: "white", "&.Mui-checked": { color } }}
-                    />
-                  }
-                  label={`${item + 1}`}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-        </CardContent>
-
-        <Tooltip title={toolTip}>
-          <HelpIcon fontSize="medium" sx={{ color: color }} />
-        </Tooltip>
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={0}
+        >
+          <CardContent
+            sx={{
+              p: 0,
+              "&:last-child": {
+                paddingBottom: 0,
+              },
+            }}
+          >
+            <FormControl>
+              <RadioGroup
+                row
+                name="controlled-radio-buttons-group"
+                onChange={handleChange}
+                defaultValue={label}
+              >
+                {nbsOfRadioBtnList.map((item) => (
+                  <FormControlLabel
+                    key={item}
+                    value={item + 1}
+                    control={
+                      <Radio
+                        size="small"
+                        sx={{ color: "white", "&.Mui-checked": { color } }}
+                      />
+                    }
+                    label={`${item + 1}`}
+                  />
+                ))}
+              </RadioGroup>
+            </FormControl>
+          </CardContent>
+        </Stack>
       </Stack>
     </Card>
   );

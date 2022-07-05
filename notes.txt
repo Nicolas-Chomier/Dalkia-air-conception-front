@@ -1,0 +1,18 @@
+//* BASIC REQUEST !
+// Axios call distante API for JWT
+/* export function callApi(payload) {
+  console.log("api called");
+  axios
+    // Ask JWT
+    .post(
+      `${URL}/api/login`,
+      { username: "admin", password: "admin" },
+      { headers: { "Content-Type": "application/json" } }
+    )
+    // Get JWT from result
+    .then((result) => {
+      return result.data.token;
+    })
+    // Call document end point creation
+    .then((token) => callApiSingleCompressor(token, payload));
+} */

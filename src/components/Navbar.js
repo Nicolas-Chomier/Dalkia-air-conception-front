@@ -35,7 +35,7 @@ export default function Navbar({ title }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        elevation={0}
+        elevation={1}
         sx={{
           backgroundColor: "transparent",
         }}
@@ -43,8 +43,8 @@ export default function Navbar({ title }) {
         <Toolbar>
           <Link to="/private/private-home">
             <IconButton size="large" edge="start" aria-label="menu">
-              <Tooltip title="Version 0">
-                <ScienceIcon sx={{ fontSize: 27, color: grey[100] }} />
+              <Tooltip title="Version 0.1">
+                <ScienceIcon sx={{ fontSize: 27, mx: 2, color: grey[100] }} />
               </Tooltip>
             </IconButton>
           </Link>
@@ -74,7 +74,7 @@ export default function Navbar({ title }) {
               signIn
             </Typography>
           </Button> */}
-          <Button variant="text" onClick={logOut} sx={{ mr: 0 }}>
+          <Button variant="text" onClick={logOut} sx={{ mr: 2 }}>
             <Typography variant="body1" component="div">
               Log Out
             </Typography>

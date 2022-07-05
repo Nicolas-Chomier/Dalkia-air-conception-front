@@ -1,44 +1,58 @@
 {
+    "themeColor": "#4EFAB4",
+    "themeColorFalse": "#c90c19",
     "flow": {
-        "title": "Données client n°1 :",
-        "label": "Débit m3/h",
+        "title": "Débit maximum souhaité",
+        "label": "Débit",
         "inputSize": 4,
         "unit": "m3/h",
         "toolTip": "Débit en m3/h",
-        "maximumValue": 1250,
-        "themeColor": "#4EFAB4"
+        "maximumValue": 1250
     },
     "pressure": {
-        "title": "Données client n°2 :",
-        "label": "Pression Bar",
+        "title": "Pression souhaité",
+        "label": "Pression",
         "inputSize": 3,
         "unit": "Bar",
         "toolTip": "Pression en Bar",
-        "maximumValue": 15,
-        "themeColor": "#4EFAB4"
+        "maximumValue": 15
     },
     "temperature": {
-        "title": "Données client n°3 :",
-        "label": "Température C°",
+        "title": "Température défavorable",
+        "label": "Température",
         "inputSize": 2,
         "unit": "degrés C°",
         "toolTip": "Température en C°",
-        "maximumValue": 45,
-        "themeColor": "#4EFAB4"
+        "maximumValue": 45
+    },
+    "altitude": {
+        "title": "Altitude",
+        "label": "Altitude",
+        "inputSize": 2,
+        "unit": "mètre m",
+        "toolTip": "Altitude en mètre (m)",
+        "maximumValue": 10
+    },
+    "humidity": {
+        "title": "Humidité défavorable",
+        "label": "Humidité",
+        "inputSize": 2,
+        "unit": "pourcentage %",
+        "toolTip": "Humidité en %",
+        "maximumValue": 10
     },
     "workingHours": {
-        "title": "Données client n°4 :",
+        "title": "Temps de fonctionnement",
         "label": "Heures de travail",
         "inputSize": 4,
         "unit": "heures",
         "toolTip": "Totale d'heures de travail annuel",
-        "maximumValue": 8760,
-        "themeColor": "#4EFAB4"
+        "maximumValue": 8760
     },
     "dust": {
         "title": "Poussières",
         "label": 2,
-        "inputSize": 6,
+        "inputSize": 4,
         "unit": "",
         "toolTip": "Cochez l'indice de protection voulu contre les poussières (ISO 8573).",
         "maximumValue": "",
@@ -47,7 +61,7 @@
     "water": {
         "title": "Humidité",
         "label": 4,
-        "inputSize": 6,
+        "inputSize": 4,
         "unit": "",
         "toolTip": "Cochez le degré d'hygrométrie maximum admissible dans le systeme (ISO 8573).",
         "maximumValue": "",
@@ -56,9 +70,35 @@
     "cov": {
         "title": "COV",
         "label": 2,
-        "inputSize": 6,
+        "inputSize": 4,
         "unit": "",
         "toolTip": "Cochez l'indice de protection voulu contre les COV(s) (ISO 8573).",
+        "maximumValue": "",
+        "themeColor": "#4EFAB4"
+    },
+    "materials": {
+        "title": "Matériel supplémentaires",
+        "label": "Matériel",
+        "values": [
+            "1-AUCUN",
+            "2-SÉCHEUR FRIGO",
+            "3-REFROIDISSEUR"
+        ],
+        "unit": "",
+        "toolTip": "blabla (ISO 8573).",
+        "maximumValue": "",
+        "themeColor": "#4EFAB4"
+    },
+    "regeneration": {
+        "title": "Mode de régénération",
+        "label": "Régénération",
+        "values": [
+            "1-AIR SEC",
+            "2-CHALEUR",
+            "3-VIDE"
+        ],
+        "unit": "",
+        "toolTip": "blabla (ISO 8573).",
         "maximumValue": "",
         "themeColor": "#4EFAB4"
     }

@@ -19,7 +19,7 @@ const PrivateHome = () => {
           minWidth: "100vw",
         }}
       >
-        <Navbar title={""} />
+        <Navbar title={"Menu"} />
       </Grid>
       <Grid
         container

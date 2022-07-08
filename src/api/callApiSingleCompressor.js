@@ -8,8 +8,8 @@ const URL = process.env.REACT_APP_ENVIRONMENT ? offLineUrl : onLineUrl;
 const MIMETYPE =
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 const KEY = process.env.REACT_APP_ENVIRONMENT
-  ? process.env.REACT_APP_KEY_ADMIN
-  : process.env.REACT_APP_KEY_512B;
+  ? process.env.REACT_APP_KEY_DEV
+  : process.env.REACT_APP_KEY_JWT;
 // Axios call end point API to get JWT and launch other API request
 export async function callApi(payload, userEmail) {
   // Config
@@ -17,8 +17,8 @@ export async function callApi(payload, userEmail) {
   const axiosConf = {
     method: "post",
     data: {
-      username: `${userEmail}`, //admin,
-      password: KEY, //"admin",
+      username: `${userEmail}`,
+      password: KEY,
     },
     url: url,
     headers: { "Content-Type": "application/json" },

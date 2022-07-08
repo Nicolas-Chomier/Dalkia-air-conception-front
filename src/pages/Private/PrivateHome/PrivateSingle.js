@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../../context/userContext";
 import FieldInput from "../../../components/FieldInput";
 import RadioInputs from "../../../components/RadioInputs";
 import ambientText from "../../../data/frontEndText.json";
@@ -17,8 +18,12 @@ import SelectInput from "../../../components/SelectInput";
 
 // JSON
 const TEXT = JSON.parse(JSON.stringify(ambientText));
-//
+
 export default function PrivateSingle() {
+  // Contexte
+  const currentUser = useContext(UserContext);
+  const [userEmail] = useState(currentUser.currentUser.email);
+  // Data from components
   const [flow, setFlow] = useState(false);
   const [pressure, setPressure] = useState(false);
   const [temperature, setTemperature] = useState(false);
@@ -48,7 +53,6 @@ export default function PrivateSingle() {
       height: 350,
     }),
   };
-
   // Fonction test des champs retourne le resultats du backend
   async function sendDataToAPI() {
     const payload = {
@@ -68,7 +72,8 @@ export default function PrivateSingle() {
         return alert("Valeurs incorrectes");
       }
     }
-    const event = await callApi(payload);
+    // Event = return from callApi function : True all is ok , false something wrong append
+    const event = await callApi(payload, userEmail);
     setResponseFromApiCall(event);
     return false;
   }

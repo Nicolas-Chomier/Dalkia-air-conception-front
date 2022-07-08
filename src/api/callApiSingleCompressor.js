@@ -1,22 +1,24 @@
-import axios from "axios";
 import { saveAs } from "file-saver";
 import { Buffer } from "buffer";
+import axios from "axios";
 
 const offLineUrl = "http://localhost:5500";
 const onLineUrl = "https://afternoon-scrubland-03383.herokuapp.com";
 const URL = process.env.REACT_APP_ENVIRONMENT ? offLineUrl : onLineUrl;
 const MIMETYPE =
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-
+const KEY = process.env.REACT_APP_ENVIRONMENT
+  ? process.env.REACT_APP_KEY_ADMIN
+  : process.env.REACT_APP_KEY_512B;
 // Axios call end point API to get JWT and launch other API request
-export async function callApi(payload) {
+export async function callApi(payload, userEmail) {
   // Config
   const url = `${URL}/api/login`;
   const axiosConf = {
     method: "post",
     data: {
-      username: "admin",
-      password: "admin",
+      username: `${userEmail}`, //admin,
+      password: KEY, //"admin",
     },
     url: url,
     headers: { "Content-Type": "application/json" },

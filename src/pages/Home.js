@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
 export default function Home() {
-  /* const { currentUser } = useContext(UserContext);
-  console.log("currentUser", currentUser); */
+  /*  const { currentUser } = useContext(UserContext);
+  console.log("currentUser", currentUser);  */
   return (
     <>
       <Grid

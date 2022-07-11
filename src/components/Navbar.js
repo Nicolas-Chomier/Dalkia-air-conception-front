@@ -15,8 +15,9 @@ import Tooltip from "@mui/material/Tooltip";
 import { grey } from "@mui/material/colors";
 
 export default function Navbar({ title }) {
-  const { toggleModals } = useContext(UserContext);
-  console.log(toggleModals);
+  //const { toggleModals } = useContext(UserContext);
+  //console.log(toggleModals);
+  useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ export default function Navbar({ title }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        elevation={1}
+        elevation={3}
         sx={{
           backgroundColor: "transparent",
         }}
@@ -43,8 +44,8 @@ export default function Navbar({ title }) {
         <Toolbar>
           <Link to="/private/private-home">
             <IconButton size="large" edge="start" aria-label="menu">
-              <Tooltip title="Version 0.1">
-                <ScienceIcon sx={{ fontSize: 27, mx: 2, color: grey[100] }} />
+              <Tooltip title="Version 0.2">
+                <ScienceIcon sx={{ fontSize: 30, mx: 2, color: grey[100] }} />
               </Tooltip>
             </IconButton>
           </Link>

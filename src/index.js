@@ -37,9 +37,9 @@ theme.typography.h3 = {
 theme.typography.h4 = {
   fontFamily: "Raleway, Arial",
   color: "White",
-  fontSize: "1.2rem",
+  fontSize: "1.3rem",
   [theme.breakpoints.up("md")]: {
-    fontSize: "1.5rem",
+    fontSize: "1.7rem",
   },
 };
 theme.typography.body1 = {

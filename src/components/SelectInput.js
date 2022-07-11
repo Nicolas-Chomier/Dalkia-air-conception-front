@@ -25,7 +25,7 @@ const SelectInput = ({ data, color, result }) => {
   };
   // Select
   const onMenuItemClick = (item) => {
-    console.log("choix formulaire", item);
+    //console.log("choix formulaire", item);
     if (item) {
       const str = item.split("-")[0];
       result(str);

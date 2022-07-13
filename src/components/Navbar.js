@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
-import Button from "@mui/material/Button";
+//import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ScienceIcon from "@mui/icons-material/Science";
 import Tooltip from "@mui/material/Tooltip";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { grey } from "@mui/material/colors";
 
 export default function Navbar({ title }) {
@@ -75,11 +76,21 @@ export default function Navbar({ title }) {
               signIn
             </Typography>
           </Button> */}
-          <Button variant="text" onClick={logOut} sx={{ mr: 2 }}>
+          {/* <Button variant="text" onClick={logOut} sx={{ mr: 2 }}>
             <Typography variant="body1" component="div">
               Log Out
             </Typography>
-          </Button>
+          </Button> */}
+          <IconButton
+            size="large"
+            edge="start"
+            aria-label="menu"
+            onClick={logOut}
+          >
+            <Tooltip title="Log Out">
+              <LogoutIcon sx={{ fontSize: 30, mx: 2, color: grey[100] }} />
+            </Tooltip>
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>

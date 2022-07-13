@@ -24,7 +24,7 @@ const PrivateWip = () => {
           <Avatar
             alt="page under construction"
             src={"/images/WIP.webp"}
-            sx={{ width: 650, height: 650 }}
+            sx={{ width: 250, height: 250 }}
           />
         </Grid>
       </Grid>

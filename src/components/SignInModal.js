@@ -8,8 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import IconButton from "@mui/material/IconButton";
+import StarsIcon from "@mui/icons-material/Stars";
 import Tooltip from "@mui/material/Tooltip";
 
 const color = "#4850aa";
@@ -80,7 +79,7 @@ const SignInModal = () => {
       >
         <CardContent>
           <Typography variant="h3" component="h3">
-            log in
+            Log in
           </Typography>
         </CardContent>
         <CardActions>
@@ -144,10 +143,11 @@ const SignInModal = () => {
             <Typography variant="subtitle1" component="div">
               Pas encore inscrit ?
             </Typography>
-            <Tooltip title="nicolas.chomier@dalkiaairsolutions.fr">
-              <IconButton>
-                <AlternateEmailIcon sx={{ color: color, fontSize: 25 }} />
-              </IconButton>
+            <Tooltip
+              title="nicolas.chomier@dalkiaairsolutions.fr"
+              placement="top"
+            >
+              <StarsIcon sx={{ color: color, fontSize: 30 }} />
             </Tooltip>
           </Stack>
         </CardContent>

@@ -43,8 +43,8 @@ export default function PrivateSingle() {
   const matchesMD = useMediaQuery(theme.breakpoints.up("md"));
   const dynamicStyles = {
     ...(matchesXS && {
-      mt: 5,
-      mb: 3,
+      mt: 8,
+      mb: 6,
       width: 250,
       height: 250,
     }),
@@ -211,7 +211,7 @@ export default function PrivateSingle() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={12} sx={{ mt: 7 }}>
+        <Grid item xs={12} sx={{ mt: 7, mb: 7 }}>
           <Button
             variant="contained"
             size="large"

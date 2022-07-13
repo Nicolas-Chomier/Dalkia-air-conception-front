@@ -5,6 +5,7 @@ import Select from "@mui/material/Select";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import CardContent from "@mui/material/CardContent";
+import InputLabel from "@mui/material/InputLabel";
 import Typography from "@mui/material/Typography";
 import HelpIcon from "@mui/icons-material/Help";
 import Tooltip from "@mui/material/Tooltip";
@@ -101,7 +102,7 @@ const SelectInput = ({ data, color, result }) => {
             }}
           >
             <FormControl fullWidth size="small" sx={{ ...dynamicStylesSlt }}>
-              {/* <InputLabel id="select-label">{label}</InputLabel> */}
+              <InputLabel id="select-label">- - - </InputLabel>
               <Select
                 labelId="select-label"
                 id="select"

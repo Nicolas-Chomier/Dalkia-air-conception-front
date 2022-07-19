@@ -41,6 +41,14 @@
         "toolTip": "Humidité en %",
         "maximumValue": 10
     },
+    "DryerConsomation": {
+        "title": "Consomation air sécheur",
+        "label": "Consomation d'air",
+        "inputSize": 3,
+        "unit": "m3/h",
+        "toolTip": "Débit en m3/h",
+        "maximumValue": 999
+    },
     "workingHours": {
         "title": "Temps de fonctionnement",
         "label": "Heures de travail",

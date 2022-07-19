@@ -27,6 +27,9 @@ export default function PrivateSingle() {
   const [flow, setFlow] = useState(false);
   const [pressure, setPressure] = useState(false);
   const [temperature, setTemperature] = useState(false);
+  const [altitude, setAltitude] = useState(false);
+  const [humidity, setHumidity] = useState(false);
+  const [dryerConsomation, setDryerConsomation] = useState(false);
   const [workedTime, setWorkedTime] = useState(false);
   const [dust, setDust] = useState(false);
   const [water, setWater] = useState(false);
@@ -59,6 +62,11 @@ export default function PrivateSingle() {
       flow: flow ? parseInt(flow, 10) : false,
       pressure: pressure ? parseFloat(pressure) : false,
       temperature: temperature ? parseInt(temperature, 10) : false,
+      altitude: altitude ? parseInt(altitude, 10) : false,
+      humidity: humidity ? parseInt(humidity, 10) : false,
+      dryerConsomation: dryerConsomation
+        ? parseInt(dryerConsomation, 10)
+        : false,
       workedTime: workedTime ? parseInt(workedTime, 10) : false,
       dust: dust ? parseInt(dust, 10) : false,
       water: water ? parseInt(water, 10) : false,
@@ -72,6 +80,7 @@ export default function PrivateSingle() {
         return alert("Valeurs incorrectes");
       }
     }
+    // console.log("payload", payload);
     // Event = return from callApi function : True all is ok , false something wrong append
     const event = await callApi(payload, userEmail);
     setResponseFromApiCall(event);
@@ -94,7 +103,7 @@ export default function PrivateSingle() {
       justifyContent="flex-start"
       alignItems="stretch"
     >
-      <Grid item xs={12} sx={{ mb: "8vh" }}>
+      <Grid item xs={12} sx={{ mb: "7vh" }}>
         <Navbar title={"Conception unitaire"} />
       </Grid>
 
@@ -135,9 +144,23 @@ export default function PrivateSingle() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <FieldInput
-                data={TEXT.workingHours}
+                data={TEXT.altitude}
                 color={themeColor}
-                result={setWorkedTime}
+                result={setAltitude}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FieldInput
+                data={TEXT.humidity}
+                color={themeColor}
+                result={setHumidity}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FieldInput
+                data={TEXT.DryerConsomation}
+                color={themeColor}
+                result={setDryerConsomation}
               />
             </Grid>
           </Grid>
@@ -186,7 +209,13 @@ export default function PrivateSingle() {
             <Grid item xs={12} sm={6}>
               <RadioInputs data={TEXT.cov} color={themeColor} result={setCov} />
             </Grid>
-
+            <Grid item xs={12} sm={6}>
+              <FieldInput
+                data={TEXT.workingHours}
+                color={themeColor}
+                result={setWorkedTime}
+              />
+            </Grid>
             <Grid item xs={12} sm={6}>
               <SelectInput
                 data={TEXT.materials}
@@ -211,17 +240,17 @@ export default function PrivateSingle() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={12} sx={{ mt: 7, mb: 7 }}>
+        <Grid item xs={12} sx={{ mt: "7vh", mb: 6 }}>
           <Button
             variant="contained"
             size="large"
             onClick={sendDataToAPI}
             sx={{
               color: "#1d1a25",
-              width: "10vw",
-              height: "4vh",
+              width: "15vw",
+              height: "6vh",
               backgroundColor: themeColor,
-              mt: 6,
+              mt: 5,
               borderRadius: 1,
             }}
           >

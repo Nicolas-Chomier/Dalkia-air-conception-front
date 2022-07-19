@@ -84,7 +84,7 @@ const FieldInput = ({ data, color, result }) => {
         <CardContent
           sx={{
             ...dynamicStyles,
-            pt: 5,
+            pt: 3,
           }}
         >
           <Stack

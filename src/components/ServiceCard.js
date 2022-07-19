@@ -26,22 +26,22 @@ const styles = {
 
 const ServiceCard = ({ text, text2, image, path }) => {
   return (
-    <Card sx={styles}>
-      <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={3}
-      >
-        <CardContent sx={{ pb: 0, pt: 3 }}>
-          <Avatar
-            alt="cube"
-            src={`/images/${image}`}
-            sx={{ width: 90, height: 90 }}
-          />
-        </CardContent>
-        <CardActions>
-          <Link to={path} style={{ textDecoration: "none" }}>
+    <Link to={path} style={{ textDecoration: "none" }}>
+      <Card sx={styles}>
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          spacing={3}
+        >
+          <CardContent sx={{ pb: 0, pt: 3 }}>
+            <Avatar
+              alt="cube"
+              src={`/images/${image}`}
+              sx={{ width: 90, height: 90 }}
+            />
+          </CardContent>
+          <CardActions>
             <Button variant="text">
               <Stack
                 direction="column"
@@ -57,10 +57,10 @@ const ServiceCard = ({ text, text2, image, path }) => {
                 </Typography>
               </Stack>
             </Button>
-          </Link>
-        </CardActions>
-      </Stack>
-    </Card>
+          </CardActions>
+        </Stack>
+      </Card>
+    </Link>
   );
 };
 

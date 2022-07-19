@@ -51,6 +51,8 @@ const RadioInputs = ({ data, color, result }) => {
         <CardContent
           sx={{
             ...dynamicStyles,
+            pb: "1vh",
+            pt: 2,
           }}
         >
           <Stack
